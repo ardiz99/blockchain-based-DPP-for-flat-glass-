@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "properties": {
+    "rawMatHash": { "type": "string", "minLength": 10 },
+    "rawMatUri":  { "type": "string", "minLength": 5 },
+    "batchNo":    { "type": "string" }
+  },
+  "required": ["rawMatHash", "rawMatUri"],
+  "additionalProperties": true
+}

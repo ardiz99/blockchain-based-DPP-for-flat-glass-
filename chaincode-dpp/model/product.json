@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "meta": { "type": "object" },
+    "currentStage": { "type": "string", "enum": ["NEW", "RawSupplied"] },
+    "createdBy": { "type": "string" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "events": { "type": "array", "items": { "type": "object" } }
+  },
+  "required": ["id", "currentStage", "createdAt", "events"],
+  "additionalProperties": true
+}
