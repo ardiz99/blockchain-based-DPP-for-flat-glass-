@@ -4,6 +4,7 @@
   "main": "gateway.js",
   "type": "module",
   "scripts": {
+    "listen": "RESET_LOG=1 node events/listenEvents.mjs",
     "test": "echo \"Error: no test specified\" && exit 1",
     "create": "node core/createProduct.mjs",
     "status": "node core/getStatus.mjs",
@@ -18,7 +19,4 @@
   "author": "",
   "license": "ISC",
   "description": ""
-  
-  
 }
-
