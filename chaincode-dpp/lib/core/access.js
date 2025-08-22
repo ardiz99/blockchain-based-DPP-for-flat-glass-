@@ -4,7 +4,7 @@
 const ROLE_OF_MSP = {
   Org1MSP: 'DPPAdmin',             // o 'Manufacturer' se preferisci
   Org2MSP: 'RawMaterialSupplier',
-  // GlassManufacturerMSP: 'GlassManufacturer',
+  Org3MSP: 'GlassManufacturer',
   // RecyclerMSP: 'Recycler', ...
 };
 
@@ -14,6 +14,7 @@ const POLICY = {
   RegisterRawMaterial: ['RawMaterialSupplier'],
   GetStatus:           '*',
   GetHistory:          '*',
+  ManufactureGlass:    ['GlassManufacturer'],
 };
 
 function getMSP(ctx) { return ctx.clientIdentity.getMSPID(); }

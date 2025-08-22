@@ -1,0 +1,12 @@
+{
+  "productId": "FG-2025-0001",
+  "stage": "GlassManufactured",
+  "processUri": "file:///home/frank99/fabric/off-chain-dpp/storage/flat-glass/FG-2025-0001-process.json",
+  "processHash": "c26bc2b69ce4f2f1a8c30f5d609631069030413f0a9bd953b32a460398356701",
+  "meta": {
+    "batchNo": "FGB-001",
+    "furnaceId": "FURN01",
+    "culletRatio": "0.25"
+  },
+  "txAt": "2025-08-22T15:00:45.033Z"
+}

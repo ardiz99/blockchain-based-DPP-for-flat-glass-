@@ -8,11 +8,13 @@
     "test": "mocha",
     "test:e2e": "mocha test/*.mjs",
     "create": "node core/createProduct.mjs",
-    "create:org1": "MSP_ID=Org1MSP FABRIC_USER=User1@org1.example.com node core/createProduct.mjs",
+    
     "status": "node core/getStatus.mjs",
     "history": "node core/getHistory.mjs",
     "rm:register": "node raw-material/register.mjs",
-    "rm:register:org2": "MSP_ID=Org2MSP FABRIC_USER=User1@org2.example.com node raw-material/register.mjs"
+    "rm:register:org2": "MSP_ID=Org2MSP FABRIC_USER=User1@org2.example.com node raw-material/register.mjs",
+    "fg:manufacture:org3": "MSP_ID=Org3MSP FABRIC_USER=User1@org3.example.com node flat-glass/manufacture.mjs",
+    "fg:manufacture": " node flat-glass/manufacture.mjs"
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.11.2",
