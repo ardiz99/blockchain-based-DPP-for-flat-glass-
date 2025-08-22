@@ -1,0 +1,14 @@
+{
+  "Org1MSP": {
+    "orgDomain": "org1.example.com",
+    "user": "User1@org1.example.com",
+    "peerHostAlias": "peer0.org1.example.com",
+    "peerEndpoint": "localhost:7051"
+  },
+  "Org2MSP": {
+    "orgDomain": "org2.example.com",
+    "user": "User1@org2.example.com",
+    "peerHostAlias": "peer0.org2.example.com",
+    "peerEndpoint": "localhost:9051"
+  }
+}

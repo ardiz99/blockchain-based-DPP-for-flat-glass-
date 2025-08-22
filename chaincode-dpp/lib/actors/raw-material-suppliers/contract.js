@@ -1,8 +1,9 @@
 'use strict';
 
 const { Contract } = require('fabric-contract-api');
-const { requireSupplier } = require('../../core/access');
+//const { requireSupplier } = require('../../core/access');
 const { assertTransition } = require('../../core/fsm');
+const { assertCan } = require('../../core/access');
 
 function txTimeISO(ctx) {
   const ts = ctx.stub.getTxTimestamp();
@@ -19,7 +20,8 @@ class RawMaterialContract extends Contract {
   // TODO (fase-1): registrare il primo evento per il prodotto
   // Params previsti: productId, rawMatHash, rawMatUri, batchNo
   async RegisterRawMaterial(ctx, productId, rawMatHash, rawMatUri, batchNo) {
-    requireSupplier(ctx);
+    //requireSupplier(ctx);
+    assertCan(ctx, 'RegisterRawMaterial'); 
 
     if(!productId || !rawMatHash || !rawMatUri) {
       throw new Error('productId, rawMatHash and rawMatUri are required');
@@ -28,8 +30,12 @@ class RawMaterialContract extends Contract {
     const buf = await ctx.stub.getState(productId);
     if (!buf || !buf.length) throw new Error(`Product ${productId} not found`);
     const product = JSON.parse(buf.toString());
-
-    assertTransition(product.currentStage, 'RawSupplied')
+    
+    const current = product.currentStage || 'NEW';
+    const next = 'RawSupplied';
+    if (!assertTransition(current, next)) {
+      throw new Error(`Illegal transition: ${current} -> ${next}`);
+    }
 
     const event = {
       seq: (product.events?.length || 0) + 1,
@@ -42,7 +48,7 @@ class RawMaterialContract extends Contract {
     
     product.events = product.events || [];
     product.events.push(event);
-    product.currentStage = 'RawSupplied';
+    product.currentStage = next;
 
     await ctx.stub.putState(productId, Buffer.from(JSON.stringify(product)));
     await ctx.stub.setEvent('DPP_EVENT', Buffer.from(JSON.stringify({ productId, type: event.type, seq: event.seq })));

@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    
     "start": "fabric-chaincode-node start",
     "test": "mocha --recursive test"
   },
@@ -12,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "ajv": "^8.17.1",
+    "avj": "^0.0.0",
     "fabric-contract-api": "^2.5.8",
     "fabric-shim": "^2.5.8"
   },
@@ -19,5 +19,11 @@
     "lib": "lib",
     "test": "test"
   },
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "chai": "^5.3.1",
+    "chai-as-promised": "^8.0.1",
+    "mocha": "^11.7.1",
+    "sinon": "^21.0.0"
+  }
 }

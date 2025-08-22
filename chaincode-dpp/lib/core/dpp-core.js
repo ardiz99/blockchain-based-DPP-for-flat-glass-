@@ -6,6 +6,7 @@
 'use strict';
 
 const { Contract } = require('fabric-contract-api');
+const { assertCan } = require('./access'); 
 
 function txTimeISO(ctx) {
   const ts = ctx.stub.getTxTimestamp();
@@ -22,6 +23,7 @@ class DppCoreContract extends Contract {
   // TODO (fase-1): crea il contenitore prodotto
   async CreateProduct(ctx, productId, metaJson) {
     
+    assertCan(ctx, 'CreateProduct');
     if (!productId) throw new Error('productId is required');
 
     const exists = await ctx.stub.getState(productId);
@@ -49,6 +51,7 @@ class DppCoreContract extends Contract {
 
   // TODO (fase-1): stato corrente (stage + ultimo evento)
   async GetProductStatus(ctx, productId) {
+    assertCan(ctx, 'GetStatus');
     const buf = await ctx.stub.getState(productId);
     if (!buf || !buf.length) throw new Error(`Product ${productId} not found`);
     const p = JSON.parse(buf.toString());
@@ -58,32 +61,33 @@ class DppCoreContract extends Contract {
 
   // TODO (fase-1): audit trail completo
   async GetHistory(ctx, productId) {
-  const iter = await ctx.stub.getHistoryForKey(productId);
-  const out = [];
+    assertCan(ctx, 'GetHistory');
+    const iter = await ctx.stub.getHistoryForKey(productId);
+    const out = [];
 
-  try {
-    // l'iterator NON è async-iterable: usa next()/done
-    while (true) {
-      const res = await iter.next();
-      if (res.value) {
-        const km = res.value; // KeyModification
-        const ts = km.timestamp;
-        const ms = (ts.seconds.low || ts.seconds) * 1000 + Math.floor(ts.nanos / 1e6);
+    try {
+      // l'iterator NON è async-iterable: usa next()/done
+      while (true) {
+        const res = await iter.next();
+        if (res.value) {
+          const km = res.value; // KeyModification
+          const ts = km.timestamp;
+          const ms = (ts.seconds.low || ts.seconds) * 1000 + Math.floor(ts.nanos / 1e6);
 
-        out.push({
-          txId: km.txId,
-          timestamp: new Date(ms).toISOString(),
-          isDelete: km.isDelete,
-          value: km.value ? JSON.parse(km.value.toString('utf8')) : null,
-        });
+          out.push({
+            txId: km.txId,
+            timestamp: new Date(ms).toISOString(),
+            isDelete: km.isDelete,
+            value: km.value ? JSON.parse(km.value.toString('utf8')) : null,
+          });
+        }
+        if (res.done) break;
       }
-      if (res.done) break;
+    } finally {
+      try { await iter.close(); } catch (_) {}
     }
-  } finally {
-    try { await iter.close(); } catch (_) {}
-  }
 
-  return JSON.stringify(out);
+    return JSON.stringify(out);
   }
 }
 
