@@ -2,19 +2,22 @@
 
 // MSP → ruolo
 const ROLE_OF_MSP = {
-  Org1MSP: 'DPPAdmin',             // o 'Manufacturer' se preferisci
-  Org2MSP: 'RawMaterialSupplier',
-  Org3MSP: 'GlassManufacturer',
+  Org1MSP: 'RawMaterialSupplier',             // o 'Manufacturer' se preferisci
+  Org2MSP: 'GlassManufacturer',
+  Org3MSP: 'Assembler',
+// Org4MSP: 'Assembler',
   // RecyclerMSP: 'Recycler', ...
 };
 
 // Azione → ruoli autorizzati
 const POLICY = {
-  CreateProduct:       ['DPPAdmin'],
+  CreateProduct:       ['RawMaterialSupplier'],
   RegisterRawMaterial: ['RawMaterialSupplier'],
   GetStatus:           '*',
   GetHistory:          '*',
   ManufactureGlass:    ['GlassManufacturer'],
+  AssemblingProduct:   ['Assembler'],
+  
 };
 
 function getMSP(ctx) { return ctx.clientIdentity.getMSPID(); }

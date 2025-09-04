@@ -3,8 +3,9 @@
 const ALLOWED = {
   NEW: ['RawSupplied'],
   RawSupplied: ['GlassManufactured'],  
-  GlassManufactured: ['GlassManufactured', 'Assembling'], // loop + transizione ad Assembling
-  Assembling: [],
+  GlassManufactured: ['GlassManufactured', 'Assembling'], 
+  Assembling: ['GlassManufactured', 'Construction'],
+  Construction: []
 };
 
 function assertTransition(prev, next) {

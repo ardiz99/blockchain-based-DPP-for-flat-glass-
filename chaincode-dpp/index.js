@@ -8,5 +8,7 @@ const RawMaterialContract = require('./lib/actors/raw-material-suppliers/contrac
 
 const GlassManufacturerContract = require('./lib/actors/glass-manufacturer/contract');
 
+const AssemblerContract = require('./lib/actors/facade-maker/contract')
+
 // Un solo chaincode package che espone più Contract (namespace separati)
-module.exports.contracts = [ DppCoreContract, RawMaterialContract, GlassManufacturerContract ];
+module.exports.contracts = [ DppCoreContract, RawMaterialContract, GlassManufacturerContract, AssemblerContract ];

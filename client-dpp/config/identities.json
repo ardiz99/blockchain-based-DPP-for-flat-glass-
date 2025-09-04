@@ -1,4 +1,10 @@
 {
+  "PublicPortalMSP": {
+    "orgDomain": "org1.example.com",
+    "user": "User1@org1.example.com",
+    "peerHostAlias": "peer0.org1.example.com",
+    "peerEndpoint": "localhost:7051"
+  },
   "Org1MSP": {
     "orgDomain": "org1.example.com",
     "user": "User1@org1.example.com",
@@ -16,6 +22,11 @@
     "user": "User1@org3.example.com",
     "peerHostAlias": "peer0.org3.example.com",
     "peerEndpoint": "localhost:11051"
+  },
+  "Org4MSP": {
+    "orgDomain": "org4.example.com",
+    "user": "User1@org4.example.com",
+    "peerHostAlias": "peer0.org4.example.com",
+    "peerEndpoint": "localhost:12051"
   }
-
 }

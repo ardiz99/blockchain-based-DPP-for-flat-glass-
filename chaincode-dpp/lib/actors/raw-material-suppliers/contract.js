@@ -19,7 +19,7 @@ class RawMaterialContract extends Contract {
 
   // TODO (fase-1): registrare il primo evento per il prodotto
   // Params previsti: productId, rawMatHash, rawMatUri, batchNo
-  async RegisterRawMaterial(ctx, productId, rawMatHash, rawMatUri, batchNo) {
+  async RegisterRawMaterial(ctx, productId, rawMatHash, rawMatUri, batchNo ) {
     //requireSupplier(ctx);
     assertCan(ctx, 'RegisterRawMaterial'); 
 
@@ -36,6 +36,8 @@ class RawMaterialContract extends Contract {
     if (!assertTransition(current, next)) {
       throw new Error(`Illegal transition: ${current} -> ${next}`);
     }
+
+
 
     const event = {
       seq: (product.events?.length || 0) + 1,

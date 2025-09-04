@@ -5,20 +5,23 @@
   "type": "module",
   "scripts": {
     "listen": "RESET_LOG=1 node events/listenEvents.mjs",
+    "api:public": "MSP_ID=Org1MSP DISCOVERY_MSP_ID=Org1MSP CHANNEL_NAME=mychannel CHAINCODE_NAME=dpp node api/server.mjs",
     "test": "mocha",
     "test:e2e": "mocha test/*.mjs",
     "create": "node core/createProduct.mjs",
-    
     "status": "node core/getStatus.mjs",
     "history": "node core/getHistory.mjs",
-    "rm:register": "node raw-material/register.mjs",
-    "rm:register:org2": "MSP_ID=Org2MSP FABRIC_USER=User1@org2.example.com node raw-material/register.mjs",
-    "fg:manufacture:org3": "MSP_ID=Org3MSP FABRIC_USER=User1@org3.example.com node flat-glass/manufacture.mjs",
-    "fg:manufacture": " node flat-glass/manufacture.mjs"
+    "rm:register": "node actors/raw-material/register.mjs",
+    "rm:register:org2": "MSP_ID=Org2MSP FABRIC_USER=User1@org2.example.com node actors/raw-material/register.mjs",
+    "fg:manufacture:org2": "MSP_ID=Org2MSP FABRIC_USER=User1@org2.example.com node actors/flat-glass/manufacture.mjs",
+    "fg:manufacture": " node actors/flat-glass/manufacture.mjs",
+    "asm:assemble:org3": "MSP_ID=Org3MSP FABRIC_USER=User1@org3.example.com node actors/windows-making/assemble.mjs"
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.11.2",
-    "@hyperledger/fabric-gateway": "^1.5.2"
+    "@hyperledger/fabric-gateway": "^1.5.2",
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
   },
   "keywords": [],
   "author": "",
