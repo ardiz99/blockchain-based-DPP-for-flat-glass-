@@ -13,13 +13,8 @@ function txTimeISO(ctx) {
 class AssemblerContract extends Contract {
   constructor() { super('Assembler'); }
 
-  /**
-   * productId: stesso id
-   * assemblyHash / assemblyUri: hash+uri del dossier di assemblaggio (off-chain)
-   * sku: codice finestra/serramento
-   * specJson: JSON opzionale (dimensioni, frame, vetrocamera, DoC, ecc.)
-   */
-  async AssembleProduct(ctx, productId, assemblyHash, assemblyUri, sku='') {
+  // Nessun specJson: firma semplice e stabile
+  async AssembleProduct(ctx, productId, assemblyHash, assemblyUri, sku = '') {
     assertCan(ctx, 'AssembleProduct');
 
     if (!productId || !assemblyHash || !assemblyUri) {
@@ -27,7 +22,7 @@ class AssemblerContract extends Contract {
     }
 
     const buf = await ctx.stub.getState(productId);
-    if (!buf || !buf.length) throw new Error(`Product ${productId} not found`);
+    if (!buf?.length) throw new Error(`Product ${productId} not found`);
     const product = JSON.parse(buf.toString());
 
     const from = product.currentStage || 'NEW';
@@ -36,12 +31,9 @@ class AssemblerContract extends Contract {
       throw new Error(`Illegal transition: ${from} -> ${to}`);
     }
 
-    let spec = {};
-    try { spec = JSON.parse(specJson || '{}'); } catch { throw new Error('specJson must be valid JSON'); }
-
     const ev = {
       seq: (product.events?.length || 0) + 1,
-      type: 'Assembled',                         // nome evento
+      type: 'Assembled',
       by: ctx.clientIdentity.getMSPID(),
       at: txTimeISO(ctx),
       payload: { assemblyHash, assemblyUri, sku }
@@ -51,14 +43,12 @@ class AssemblerContract extends Contract {
     product.events.push(ev);
     product.currentStage = to;
 
-    // opzionale: promuovi il tipo a "window" o simile
+    // opzionale: promuovi il tipo a "window" (puoi commentarlo se non vuoi)
     product.meta = product.meta || {};
-    product.meta.type = product.meta.type || 'flat-glass';
-    product.meta.type = 'window'; // commenta se non vuoi cambiare
+    product.meta.type = 'window';
 
     await ctx.stub.putState(productId, Buffer.from(JSON.stringify(product)));
     await ctx.stub.setEvent('DPP_EVENT', Buffer.from(JSON.stringify({ productId, type: ev.type, seq: ev.seq })));
-
     return JSON.stringify({ ok: true, productId, currentStage: product.currentStage });
   }
 }

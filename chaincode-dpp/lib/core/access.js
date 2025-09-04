@@ -16,8 +16,8 @@ const POLICY = {
   GetStatus:           '*',
   GetHistory:          '*',
   ManufactureGlass:    ['GlassManufacturer'],
-  AssemblingProduct:   ['Assembler'],
-  
+  'Assembler:AssembleProduct': ['Assembler'], // con namespace
+  AssembleProduct:             ['Assembler'], // senza namespace
 };
 
 function getMSP(ctx) { return ctx.clientIdentity.getMSPID(); }

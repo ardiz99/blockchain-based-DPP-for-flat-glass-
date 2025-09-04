@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 
-const [,, productId, filePath, sku='', specPath=''] = process.argv;
+const [,, productId, filePath, sku = ''] = process.argv;
 
 const dec = new TextDecoder();
 const printResponse = (bytes) => {
@@ -13,7 +13,7 @@ const printResponse = (bytes) => {
 };
 
 if (!productId || !filePath) {
-  console.error('Usage: node actors/windows-making/assembling.mjs <productId> <filePath> [sku] [specJsonFile]');
+  console.error('Usage: node assembling/assemble.mjs <productId> <filePath> [sku]');
   process.exit(1);
 }
 
@@ -21,27 +21,21 @@ const buf = fs.readFileSync(filePath);
 const assemblyHash = crypto.createHash('sha256').update(buf).digest('hex');
 const assemblyUri  = 'file://' + path.resolve(filePath);
 
-let specJson = '{}';
-if (specPath) {
-  specJson = fs.readFileSync(specPath, 'utf8');
-}
-
 const { gateway, client, contract } = await newGatewayAndContract('Assembler');
 try {
   const res = await contract.submitTransaction(
     'Assembler:AssembleProduct',
-    productId, assemblyHash, assemblyUri, sku, specJson
+    productId, assemblyHash, assemblyUri
   );
   printResponse(res);
 
-  // off-chain log
-  const dir = path.join(process.cwd(), 'off-chain-dpp', 'storage', 'assembling');
+  // off-chain log -> windows-facade
+  const dir = path.join(process.cwd(), 'off-chain-dpp', 'storage', 'windows-facade');
   fs.mkdirSync(dir, { recursive: true });
   const out = {
     productId,
     stage: 'Assembling',
     assemblyUri, assemblyHash, sku,
-    spec: specPath ? JSON.parse(specJson) : undefined,
     txAt: new Date().toISOString()
   };
   const f = path.join(dir, `${productId}-${Date.now()}.json`);

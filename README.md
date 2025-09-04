@@ -6,4 +6,21 @@ Creating a blockchain-based Digital Product Passport to guarantee circular econo
 2) run: ./network.sh up createChannel -c mychannel -ca
 3) run: ./network.sh deployCC -c mychannel -ccn dpp -ccp ../../chaincode-dpp -ccl javascript
 
+per runnare org3:
+1) cd addOrg3
+2) ./addOrg3.sh up -c mychannel -ca
+3) cd ..
+export PATH=${PWD}/../bin:$PATH
+export FABRIC_CFG_PATH=${PWD}/../config
+export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_LOCALMSPID=Org3MSP
+export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp
+export CORE_PEER_ADDRESS=localhost:11051
+export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org3.example.com/peers/peer0.org3.example.com/tls/ca.crt
+peer lifecycle chaincode install dpp.tar.gz || true
 
+//runnare
+
+
+
+4) npm run asm:assemble:org3 -- FG-2025-0001 ../off-chain-dpp/storage/windows-facade/FG-2025-0001.json WIN-001
