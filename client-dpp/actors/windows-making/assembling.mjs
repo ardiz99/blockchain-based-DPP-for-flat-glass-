@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 
-const [,, productId, filePath, sku = ''] = process.argv;
+const [,, productId, filePath, sku=''] = process.argv;
 
 const dec = new TextDecoder();
 const printResponse = (bytes) => {

@@ -5,7 +5,7 @@ const ROLE_OF_MSP = {
   Org1MSP: 'RawMaterialSupplier',             // o 'Manufacturer' se preferisci
   Org2MSP: 'GlassManufacturer',
   Org3MSP: 'Assembler',
-// Org4MSP: 'Assembler',
+  Org4MSP: 'CostructionTeam',
   // RecyclerMSP: 'Recycler', ...
 };
 
@@ -16,8 +16,8 @@ const POLICY = {
   GetStatus:           '*',
   GetHistory:          '*',
   ManufactureGlass:    ['GlassManufacturer'],
-  'Assembler:AssembleProduct': ['Assembler'], // con namespace
-  AssembleProduct:             ['Assembler'], // senza namespace
+  AssembleProduct:     ['Assembler'],
+  Construction:        ['ConstructionTeam'] 
 };
 
 function getMSP(ctx) { return ctx.clientIdentity.getMSPID(); }
