@@ -37,8 +37,6 @@ class RawMaterialContract extends Contract {
       throw new Error(`Illegal transition: ${current} -> ${next}`);
     }
 
-
-
     const event = {
       seq: (product.events?.length || 0) + 1,
       type: 'RawMaterialSupplied',

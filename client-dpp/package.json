@@ -15,7 +15,8 @@
     "rm:register:org2": "MSP_ID=Org2MSP FABRIC_USER=User1@org2.example.com node actors/raw-material/register.mjs",
     "fg:manufacture:org2": "MSP_ID=Org2MSP FABRIC_USER=User1@org2.example.com node actors/flat-glass/manufacture.mjs",
     "fg:manufacture": " node actors/flat-glass/manufacture.mjs",
-    "asm:assemble:org3": "MSP_ID=Org3MSP FABRIC_USER=User1@org3.example.com node actors/windows-making/assembling.mjs"
+    "asm:assemble:org3": "MSP_ID=Org3MSP FABRIC_USER=User1@org3.example.com node actors/windows-making/assembling.mjs",
+    "ctr:construction:org4": "MSP_ID=Org3MSP FABRIC_USER=User1@org3.example.com node actors/construction/construct.mjs"
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.11.2",

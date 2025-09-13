@@ -1,15 +1,14 @@
 'use strict';
 
-// MSP → ruolo
+// MSP → ruoli (multipli ammessi)
 const ROLE_OF_MSP = {
-  Org1MSP: 'RawMaterialSupplier',             // o 'Manufacturer' se preferisci
-  Org2MSP: 'GlassManufacturer',
-  Org3MSP: 'Assembler',
-  Org4MSP: 'CostructionTeam',
-  // RecyclerMSP: 'Recycler', ...
+  Org1MSP: ['RawMaterialSupplier'],
+  Org2MSP: ['GlassManufacturer'],
+  Org3MSP: ['Assembler', 'ConstructionTeam'], // Org3 "simula" entrambi i ruoli
+  // Org4MSP: [...],
 };
 
-// Azione → ruoli autorizzati
+// Azione → ruoli autorizzati (array o '*')
 const POLICY = {
   CreateProduct:       ['RawMaterialSupplier'],
   RegisterRawMaterial: ['RawMaterialSupplier'],
@@ -17,20 +16,28 @@ const POLICY = {
   GetHistory:          '*',
   ManufactureGlass:    ['GlassManufacturer'],
   AssembleProduct:     ['Assembler'],
-  Construction:        ['ConstructionTeam'] 
+  Construction:        ['ConstructionTeam'],
 };
 
-function getMSP(ctx) { return ctx.clientIdentity.getMSPID(); }
-function getRole(ctx) { return ROLE_OF_MSP[getMSP(ctx)] || 'UNKNOWN'; }
+function getMSP(ctx) {
+  return ctx.clientIdentity.getMSPID();
+}
+
+function getRoles(ctx) {
+  return ROLE_OF_MSP[getMSP(ctx)] || [];
+}
 
 function assertCan(ctx, action) {
   const allowed = POLICY[action];
   if (allowed === '*') return;
 
-  const role = getRole(ctx);
-  if (!Array.isArray(allowed) || !allowed.includes(role)) {
-    throw new Error(`Access denied for ${action}. role=${role}, required=${JSON.stringify(allowed)}`);
+  const roles = getRoles(ctx);
+  const ok = roles.some(r => allowed.includes(r));
+  if (!ok) {
+    throw new Error(
+      `Access denied for ${action}. msp=${getMSP(ctx)}, roles=${JSON.stringify(roles)}, required=${JSON.stringify(allowed)}`
+    );
   }
 }
 
-module.exports = { assertCan, getRole, getMSP, ROLE_OF_MSP, POLICY };
+module.exports = { assertCan, getMSP, getRoles, ROLE_OF_MSP, POLICY };

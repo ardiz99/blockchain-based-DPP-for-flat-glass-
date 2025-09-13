@@ -1,0 +1,16 @@
+{
+  "productId": "FG-2025-0001",
+  "installedAt": "2025-09-13T12:34:56Z",
+  "siteId": "SITE-PIAZZA-01",
+  "building": {
+    "name": "Torre Alfa",
+    "address": "Via Roma 10, Milano",
+    "gps": [45.4642, 9.1900]
+  },
+  "installer": {
+    "company": "Org4 Construction S.r.l.",
+    "operatorId": "OP-7781"
+  },
+  "method": "Mechanical anchors + silicone",
+  "notes": "Unità piano 12 lato sud"
+}
