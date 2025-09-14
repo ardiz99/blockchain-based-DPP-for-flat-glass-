@@ -28,5 +28,11 @@
     "user": "User1@org4.example.com",
     "peerHostAlias": "peer0.org4.example.com",
     "peerEndpoint": "localhost:12051"
+  },
+  "Org5MSP": {
+    "orgDomain": "org5.example.com",
+    "user": "User1@org5.example.com",
+    "peerHostAlias": "peer0.org5.example.com",
+    "peerEndpoint": "localhost:13051"
   }
 }

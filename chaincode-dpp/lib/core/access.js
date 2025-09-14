@@ -4,7 +4,7 @@
 const ROLE_OF_MSP = {
   Org1MSP: ['RawMaterialSupplier'],
   Org2MSP: ['GlassManufacturer'],
-  Org3MSP: ['Assembler', 'ConstructionTeam'], // Org3 "simula" entrambi i ruoli
+  Org3MSP: ['Assembler', 'ConstructionTeam', 'DemolitionTeam'], // Org3 "simula" entrambi i ruoli
   // Org4MSP: [...],
 };
 
@@ -17,6 +17,7 @@ const POLICY = {
   ManufactureGlass:    ['GlassManufacturer'],
   AssembleProduct:     ['Assembler'],
   Construction:        ['ConstructionTeam'],
+  Demolition:          ['DemolitionTeam'],
 };
 
 function getMSP(ctx) {
