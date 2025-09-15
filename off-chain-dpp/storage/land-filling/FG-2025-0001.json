@@ -1,0 +1,16 @@
+{
+  "reasonForDisposal": "Vetro contaminato da silicone: riciclo non economicamente praticabile",
+  "nonReusability": {
+    "summary": "Telaio deformato, pannello con scheggiature diffuse",
+    "evidenceDocs": ["inspection-photos-2025-09-13.zip"]
+  },
+  "hazardousMaterials": [
+    {"name": "sigillante a base di silicone", "qtyKg": 0.4, "note": "aderenza elevata"},
+    {"name": "vernici al piombo", "qtyKg": 0.0, "note": "assenti"}
+  ],
+  "environmentalImpact": {
+    "landfillClass": "non-hazardous",
+    "estimatedCO2eKg": 12.5,
+    "notes": "Smaltimento in discarica regionale classe 2"
+  }
+}

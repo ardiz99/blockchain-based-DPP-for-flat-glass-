@@ -31,7 +31,8 @@ peer lifecycle chaincode install dpp.tar.gz || true
 15)	npm run asm:assemble:org3 -- FG-2025-0001 ../off-chain-dpp/storage/windows-facade/FG-2025-0001.json W-001
 16)	npm run ctr:construction:org4 -- FG-2025-0001 ../off-chain-dpp/storage/construction/FG-2025-0001.json SITE-PIAZZA-01
 17)	npm run demo:demolish:org5 -- FG-2025-0001 ../off-chain-dpp/storage/demolition/FG-2025-0001.json
-18) npm run rec:recycle:org6 -- FG-2025-0001 ../off-chain-dpp/storage/recycling/FG-2025-0001.json
+18) npm run rec:recycle:org6 -- FG-2025-0001 ../off-chain-dpp/storage/recycling/FG-2025-0001.json ../off-chain-dpp/storage/demolition/FG-2025-0001.json
+19) npm run lf:landfill:org7 -- FG-2025-0001 ../off-chain-dpp/storage/land-filling/FG-2025-0001.json ../off-chain-dpp/storage/demolition/FG-2025-0001.json
 
 
 

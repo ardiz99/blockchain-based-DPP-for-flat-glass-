@@ -1,0 +1,31 @@
+{
+  "productId": "FG-2025-0001",
+  "stage": "LandFill",
+  "processUri": "file:///home/frank99/fabric/off-chain-dpp/storage/land-filling/FG-2025-0001.json",
+  "processHash": "9283ba8a8d1b3e27c2af90d4d0b4411cfaaf4d9aaba5f5436076cf32d3e5bf40",
+  "reasonForDisposal": "Vetro contaminato da silicone: riciclo non economicamente praticabile",
+  "nonReusability": {
+    "summary": "Telaio deformato, pannello con scheggiature diffuse",
+    "evidenceDocs": [
+      "inspection-photos-2025-09-13.zip"
+    ]
+  },
+  "hazardousMaterials": [
+    {
+      "name": "sigillante a base di silicone",
+      "qtyKg": 0.4,
+      "note": "aderenza elevata"
+    },
+    {
+      "name": "vernici al piombo",
+      "qtyKg": 0,
+      "note": "assenti"
+    }
+  ],
+  "environmentalImpact": {
+    "landfillClass": "non-hazardous",
+    "estimatedCO2eKg": 12.5,
+    "notes": "Smaltimento in discarica regionale classe 2"
+  },
+  "txAt": "2025-09-15T14:07:22.409Z"
+}

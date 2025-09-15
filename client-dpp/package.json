@@ -18,7 +18,8 @@
     "asm:assemble:org3": "MSP_ID=Org3MSP FABRIC_USER=User1@org3.example.com node actors/windows-making/assembling.mjs",
     "ctr:construction:org4": "MSP_ID=Org3MSP FABRIC_USER=User1@org3.example.com node actors/construction/construct.mjs",
     "demo:demolish:org5": "MSP_ID=Org3MSP FABRIC_USER=User1@org3.example.com node actors/demolition/demolited.mjs",
-    "rec:recycle:org6": "MSP_ID=Org3MSP FABRIC_USER=User1@org3.example.com node actors/recycling/recycled.mjs"
+    "rec:recycle:org6": "MSP_ID=Org3MSP FABRIC_USER=User1@org3.example.com node actors/recycling/recycled.mjs",
+    "lf:landfill:org7": "MSP_ID=Org3MSP FABRIC_USER=User1@org3.example.com node actors/land-filling/land-filled.mjs"
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.11.2",
