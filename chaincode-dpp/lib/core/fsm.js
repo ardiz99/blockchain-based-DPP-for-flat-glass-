@@ -7,7 +7,7 @@ const ALLOWED = {
   Assembling: ['GlassManufactured', 'Construction'],
   Construction: ['Demolition'],
   Demolition: ['Construction', 'Recycling', 'LandFilled'],
-  Recycling: ['GlassManufactured']
+  Recycling: ['Recycling','GlassManufactured']
 };
 
 function assertTransition(prev, next) {

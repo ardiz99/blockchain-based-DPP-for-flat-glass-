@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import crypto from 'node:crypto';
 import path from 'node:path';
 
-const [,, productId, filePath] = process.argv;
+const [,, productId, filePath, demolitionPathArg] = process.argv;
 
 const dec = new TextDecoder();
 const printResponse = (bytes) => {
@@ -13,7 +13,7 @@ const printResponse = (bytes) => {
 };
 
 if (!productId || !filePath) {
-  console.error('Usage: node actors/recycling/recycled.mjs -- <productId> <offchain-json-path>');
+  console.error('Usage: node actors/recycling/recycled.mjs -- <productId> <offchain-json-path> [<demolition-json>]');
   process.exit(1);
 }
 
@@ -37,6 +37,33 @@ for (const k of required) {
     process.exit(1);
   }
 }
+
+const defaultDemolitionPath = path.join(process.cwd(), 'off-chain-dpp', 'storage', 'demolition', `${productId}.json`);
+const demolitionPath = demolitionPathArg || defaultDemolitionPath;
+
+if (fs.existsSync(demolitionPath)) {
+    try {
+        const demolition = JSON.parse(fs.readFileSync(demolitionPath, 'utf8'));
+        const rec = demolition?.recoveryPotential?.recommendedPath;
+        if (!rec) {
+            console.warn(`[recycling] WARNING: nel demolition file manca recoveryPotential.recommendedPath (${demolitionPath}). Procedo comunque.`);
+        }
+        else if (String(rec).toLowerCase() !== 'recycling') {
+            console.error(`[recycling] BLOCCATO: per ${productId} il recommendedPath è '${rec}'. Usa il flusso LandFiller invece del riciclo.`);
+            process.exit(2)
+        }
+        else {
+            console.log(`[recycling] OK: demolition consiglia '${rec}'. Procedo col riciclo.`);
+        }
+    }
+    catch (e) {
+        console.warn(`[recycling] WARNING: demolition file non leggibile (${demolitionPath}): ${e.message}. Procedo comunque.`);
+    }
+}
+else {
+    console.warn(`[recycling] WARNING: demolition file non trovato (${demolitionPath}). Procedo comunque.`);
+}
+
 
 // 2) hash + uri del file off-chain
 const buf = Buffer.from(dataTxt, 'utf8');
