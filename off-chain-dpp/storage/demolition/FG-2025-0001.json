@@ -21,5 +21,10 @@
     "packaging": "cassa in legno + film",
     "carrier": "EcoLogistica SpA",
     "transportDoc": "DDT-4567-2025-09-13"
+  },
+  "compliance": {
+    "CE": true,
+    "REACH": false,
+    "RoHS": true
   }
 }

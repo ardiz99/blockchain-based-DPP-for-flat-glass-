@@ -12,5 +12,10 @@
     "operatorId": "OP-7781"
   },
   "method": "Mechanical anchors + silicone",
-  "notes": "Unità piano 12 lato sud"
+  "notes": "Unità piano 12 lato sud",
+  "compliance": {
+    "CE": true,
+    "REACH": false,
+    "RoHS": true
+  }
 }

@@ -20,7 +20,8 @@
     "demo:demolish:org5": "MSP_ID=Org3MSP FABRIC_USER=User1@org3.example.com node actors/demolition/demolited.mjs",
     "rec:recycle:org6": "MSP_ID=Org3MSP FABRIC_USER=User1@org3.example.com node actors/recycling/recycled.mjs",
     "lf:landfill:org7": "MSP_ID=Org3MSP FABRIC_USER=User1@org3.example.com node actors/land-filling/land-filled.mjs",
-    "bo:view":"node actors/building-owners/view.mjs"
+    "bo:view":"node actors/building-owners/view.mjs",
+    "gov:check": "MSP_ID=Org1MSP FABRIC_USER=User1@org1.example.com node actors/governance/check.mjs"
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.11.2",

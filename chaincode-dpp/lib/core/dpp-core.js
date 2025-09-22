@@ -14,6 +14,41 @@ function txTimeISO(ctx) {
   return new Date(ms).toISOString();
 }
 
+function get(o, path) {
+  return path.split('.').reduce((v, k) => (v && v[k] !== undefined ? v[k] : undefined), o);
+}
+
+function defaultComplianceRules() {
+  return [
+    
+    { id: 'RM-1', when: 'RawMaterialRegistered', require: ['payload.batchNo'] },
+    { id: 'FG-1', when: 'GlassManufactured',      require: ['payload.processUri','payload.batchNo','payload.furnaceId'] },
+    { id: 'ASM-1', when: 'Assembled',             require: ['payload.specUri'] },
+    { id: 'CON-1', when: 'Construction',          require: ['payload.siteId'] },
+    { id: 'DEM-1', when: 'Demolition',            require: ['payload.recoveryPotential.recommendedPath'] },
+    { id: 'REC-1', when: 'Recycling',             require: ['payload.outputs'] },
+    { id: 'LF-1',  when: 'Landfilled',            require: ['payload.reasonForDisposal'] },
+  ];
+}
+
+function computeCompliance(product, rules) {
+  const events = Array.isArray(product.events) ? product.events : [];
+  const checks = rules.map(rule => {
+    const ev = events.find(e => e.type === rule.when);
+    if (!ev) {
+      return { id: rule.id, when: rule.when, pass: false, reason: `no ${rule.when} event` };
+    }
+    for (const f of (rule.require || [])) {
+      if (get(ev, f) === undefined) {
+        return { id: rule.id, when: rule.when, pass: false, reason: `missing field ${f}` };
+      }
+    }
+    return { id: rule.id, when: rule.when, pass: true };
+  });
+  const ok = checks.every(c => c.pass);
+  return { ok, checks };
+}
+
 class DppCoreContract extends Contract {
   constructor() {
     // Nome del namespace (per invocarlo: "DppCore:Metodo")
@@ -88,6 +123,28 @@ class DppCoreContract extends Contract {
     }
 
     return JSON.stringify(out);
+  }
+
+  async EvaluateCompliance(ctx, productId, rulesJson) {
+    assertCan(ctx, 'EvaluateCompliance');
+    if (!productId) throw new Error('productId is required');
+
+    const buf = await ctx.stub.getState(productId);
+    if (!buf || !buf.length) throw new Error(`Product ${productId} not found`);
+    const product = JSON.parse(buf.toString());
+
+    let rules = defaultComplianceRules();
+    if (rulesJson) {
+      try { rules = JSON.parse(rulesJson); }
+      catch { throw new Error('rulesJson must be valid JSON'); }
+    }
+
+    const result = computeCompliance(product, rules);
+    return JSON.stringify({
+      productId,
+      currentStage: product.currentStage,
+      ...result
+    });
   }
 }
 

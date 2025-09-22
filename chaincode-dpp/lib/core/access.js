@@ -2,7 +2,7 @@
 
 // MSP → ruoli (multipli ammessi)
 const ROLE_OF_MSP = {
-  Org1MSP: ['RawMaterialSupplier'],
+  Org1MSP: ['RawMaterialSupplier', 'GovernantAgencies'],
   Org2MSP: ['GlassManufacturer'],
   Org3MSP: ['Assembler', 'ConstructionTeam', 'DemolitionTeam', 'GlassRecycler', 'LandFiller'], // Org3 "simula" entrambi i ruoli
   // Org4MSP: [...],
@@ -14,6 +14,7 @@ const POLICY = {
   RegisterRawMaterial: ['RawMaterialSupplier'],
   GetStatus:           '*',
   GetHistory:          '*',
+  EvaluateCompliance:  ['GovernantAgencies'], 
   ManufactureGlass:    ['GlassManufacturer'],
   AssembleProduct:     ['Assembler'],
   Construction:        ['ConstructionTeam'],

@@ -42,6 +42,9 @@ curl -sS http://localhost:8080/other/dpp/FG-2025-0001/status  | jq .
 
 21) npm run bo:view -- FG-2025-0001
 
+22) npm run gov:check -- FG-2025-0001
+23) npm run gov:check -- FG-2025-0001 ./rules/eu-default.json
+
 
 //per ora ignora
 
