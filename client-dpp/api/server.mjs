@@ -51,4 +51,39 @@ app.get('/dpp/:id/history', async (req, res) => {
   } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
+// --- helper per capire se siamo dopo il riciclo
+const RECYCLE_OK = new Set(['Recycling', 'Recycled', 'GlassRecycled', 'RecycledGlass', 'recycling']);
+
+// Esegue una evaluate con un'identità specifica (qui Org2) senza “sporcare” il resto
+async function withContractAs(mspId, userId, ns, fn) {
+  // 👇 MSP corretta
+  process.env.MSP_ID = mspId;
+  process.env.DISCOVERY_MSP_ID = mspId;
+
+  // 👇 utente/cert da usare per quell’MSP
+  process.env.FABRIC_USER = userId;
+
+  process.env.CHANNEL_NAME = process.env.CHANNEL_NAME || 'mychannel';
+  process.env.CHAINCODE_NAME = process.env.CHAINCODE_NAME || 'dpp';
+
+  const { gateway, client, contract } = await newGatewayAndContract(ns);
+  try { return await fn(contract); }
+  finally { gateway.close(); client.close(); }
+}
+
+// --- ROUTE “Other Glass Manufacturer” (solo Org2, solo dopo riciclo) -----
+app.get('/other/dpp/:id/status', async (req, res) => {
+  try {
+    const bytes = await withContractAs('Org2MSP','User1@org2.example.com','DppCore',
+      c => c.evaluateTransaction('GetProductStatus', req.params.id)
+    );
+    const st = toJSON(bytes);
+    const stage = (st && (st.currentStage || st.stage || st.status)) ?? '';
+    if (!RECYCLE_OK.has(String(stage))) {
+      return res.status(403).json({ error: 'visible only after recycling stage', currentStage: stage });
+    }
+    res.json(st);
+  } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
 app.listen(PORT, () => console.log(`DPP public API on :${PORT}`));

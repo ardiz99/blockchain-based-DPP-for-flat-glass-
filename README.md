@@ -34,10 +34,11 @@ peer lifecycle chaincode install dpp.tar.gz || true
 18) npm run rec:recycle:org6 -- FG-2025-0001 ../off-chain-dpp/storage/recycling/FG-2025-0001.json ../off-chain-dpp/storage/demolition/FG-2025-0001.json
 19) npm run lf:landfill:org7 -- FG-2025-0001 ../off-chain-dpp/storage/land-filling/FG-2025-0001.json ../off-chain-dpp/storage/demolition/FG-2025-0001.json
 
-
-
-
-
+per le api:
+20) npm run api:public
+curl -sS http://localhost:8080/dpp/FG-2025-0001/status  | jq .
+curl -sS http://localhost:8080/dpp/FG-2025-0001/history | jq .
+curl -sS http://localhost:8080/other/dpp/FG-2025-0001/status  | jq .
 
 
 
