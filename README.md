@@ -40,6 +40,7 @@ curl -sS http://localhost:8080/dpp/FG-2025-0001/status  | jq .
 curl -sS http://localhost:8080/dpp/FG-2025-0001/history | jq .
 curl -sS http://localhost:8080/other/dpp/FG-2025-0001/status  | jq .
 
+21) npm run bo:view -- FG-2025-0001
 
 
 //per ora ignora
