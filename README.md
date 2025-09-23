@@ -7,9 +7,9 @@ Creating a blockchain-based Digital Product Passport to guarantee circular econo
 3) run: ./network.sh deployCC -c mychannel -ccn dpp -ccp ../../chaincode-dpp -ccl javascript
 
 per runnare org3:
-1) cd addOrg3
-2) ./addOrg3.sh up -c mychannel -ca
-3) cd ..
+cd addOrg3
+./addOrg3.sh up -c mychannel -ca
+cd ..
 export PATH=${PWD}/../bin:$PATH
 export FABRIC_CFG_PATH=${PWD}/../config
 export CORE_PEER_TLS_ENABLED=true
@@ -24,7 +24,7 @@ peer lifecycle chaincode install dpp.tar.gz || true
 7)	npm run create -- FG-2025-0001 '{"type":"glass","note":"demo"}'
 8)	npm run rm:register -- FG-2025-0001 ../off-chain-dpp/storage/raw-materials/FG-2025-0001.json B-7781 
 9)	npm run status -- FG-2025-0001
-10)	nmp run history -- FG-2025-0001
+10)	npm run history -- FG-2025-0001
 11)	RESET_LOG=1 npm run listen
 12)	PRODUCT=FG-2025-0001 npm run listen
 14)	npm run fg:manufacture:org2 -- FG-2025-0001 ../off-chain-dpp/storage/flat-glass/FG-2025-0001-process.json FGB-001 FURN01 0.25
@@ -43,28 +43,9 @@ curl -sS http://localhost:8080/other/dpp/FG-2025-0001/status  | jq .
 21) npm run bo:view -- FG-2025-0001
 
 22) npm run gov:check -- FG-2025-0001
-23) npm run gov:check -- FG-2025-0001 ./rules/eu-default.json
-
 
 //per ora ignora
 
 //aggiungi 0rg4 (e le altre org: sostituisci i nomi e basta):
 1) cp -R addOrg3 addOrg4
 2) cp -R scripts/org3-scripts scripts/org4-scripts
-
-Sostituisci:
-cd ../addOrg4
-grep -RIl 'Org3MSP' | xargs -I{} sed -i 's/Org3MSP/Org4MSP/g' {}
-grep -RIl 'org3.example.com' | xargs -I{} sed -i 's/org3.example.com/org4.example.com/g' {}
-grep -RIl '11051\|11054\|11055' | xargs -I{} sed -i -e 's/11051/12051/g' -e 's/11054/12054/g' -e 's/11055/12055/g' {}
-
-Modifica: envVas.sh, setOrgEnv.sh e setAnchorPeer.sh aggiungendo Org4 
-
-export PATH=${PWD}/../bin:$PATH
-export FABRIC_CFG_PATH=${PWD}/../config
-export CORE_PEER_TLS_ENABLED=true
-export CORE_PEER_LOCALMSPID=Org4MSP
-export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org4.example.com/users/Admin@org4.example.com/msp
-export CORE_PEER_ADDRESS=localhost:12051
-export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org4.example.com/peers/peer0.org4.example.com/tls/ca.crt
-peer lifecycle chaincode install dpp.tar.gz || true

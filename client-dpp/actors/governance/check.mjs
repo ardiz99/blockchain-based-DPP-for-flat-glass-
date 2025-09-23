@@ -50,23 +50,23 @@ export function printResponse(data) {
 
 // Ordine degli stage e mapping -> directory off-chain
 const STAGES = [
-  'RawMaterialRegistered',
+  'RawSupplied',
   'GlassManufactured',
   'Assembling',
   'Construction',
   'Demolition',
   'Recycling',
-  'Landfilled',
+  'Landfill',
 ];
 
 const OFFCHAIN_DIRS = {
-  RawMaterialRegistered: 'raw-materials',
+  RawSupplied:           'raw-materials',
   GlassManufactured:     'flat-glass',
   Assembling:            'windows-facade',
   Construction:          'construction',
   Demolition:            'demolition',
   Recycling:             'recycling',
-  Landfilled:            'land-filling',
+  Landfill:              'land-filling',
 };
 
 // standard da tracciare (puoi aggiungere voci qui)

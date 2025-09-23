@@ -3,7 +3,7 @@
 // Core DPP (API generiche)
 const DppCoreContract = require('./lib/core/dpp-core');
 
-// Attore: Raw Material Supplier (path come nella tua struttura)
+// Smart contract degli Attori
 const RawMaterialContract = require('./lib/actors/raw-material-suppliers/contract');
 
 const GlassManufacturerContract = require('./lib/actors/glass-manufacturer/contract');

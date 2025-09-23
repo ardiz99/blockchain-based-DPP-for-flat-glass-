@@ -1,0 +1,44 @@
+{
+  "productId": "FG-2025-0001",
+  "stage": "Demolition",
+  "processUri": "file:///home/frank99/fabric/off-chain-dpp/storage/demolition/FG-2025-0001.json",
+  "processHash": "b5216ee640ba0af4a2734288dc1f37b49e0f492efb7d6700f02b841cf54ede19",
+  "disassemblyInstructions": "Rimuovere i fermavetri lato interno, tagliare sigillante perimetrale. Usare ventose certificate EN 13155.",
+  "endOfLifeCondition": {
+    "integrity": "intact",
+    "coatings": "low-E hard-coat",
+    "laminated": false,
+    "contaminants": [
+      "silicon",
+      "stucco"
+    ],
+    "notes": "Scheggiatura angolo NE"
+  },
+  "recoveryPotential": {
+    "recommendedPath": "landfill",
+    "justification": "Coating idoneo al riciclo: solo scheggiatura",
+    "estimatedYieldPct": 85
+  },
+  "wasteSegregation": {
+    "streams": [
+      {
+        "type": "glass",
+        "massKg": 32.4,
+        "purityNote": "basso silicone"
+      },
+      {
+        "type": "aluminum_frame",
+        "massKg": 6.1
+      },
+      {
+        "type": "gasket",
+        "massKg": 0.7,
+        "disposal": "energy-recovery"
+      }
+    ],
+    "packaging": "cassa in legno + film",
+    "carrier": "EcoLogistica SpA",
+    "transportDoc": "DDT-4567-2025-09-13"
+  },
+  "txAt": "2025-09-23T22:55:03.837Z"
+}

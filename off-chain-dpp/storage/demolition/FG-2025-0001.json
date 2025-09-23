@@ -8,7 +8,7 @@
     "notes": "Scheggiatura angolo NE"
   },
   "recoveryPotential": {
-    "recommendedPath": "recycling",    
+    "recommendedPath": "recycling",   
     "justification": "Coating idoneo al riciclo: solo scheggiatura",
     "estimatedYieldPct": 85
   },

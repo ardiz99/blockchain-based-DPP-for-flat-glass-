@@ -64,7 +64,7 @@ async function main() {
     }
     const status = toJSON(statusBytes);
 
-    const allowedStages = new Set(['Construction', 'Demolition', 'Recycling', 'Landfilled']);
+    const allowedStages = new Set(['Construction', 'Demolition', 'Recycling', 'Landfill']);
     if (!status || !status.currentStage || !allowedStages.has(status.currentStage)) {
       console.log(JSON.stringify({
         error: 'visible only from Construction stage onward',

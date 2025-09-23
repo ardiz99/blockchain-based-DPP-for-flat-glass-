@@ -2,6 +2,7 @@
 // 1) create a product: first thing to do, 
 // 2) get the product status: update the status of a product
 // 3) get the history of a product
+// 4) get the compliance check of a product
 
 'use strict';
 
@@ -21,8 +22,8 @@ function get(o, path) {
 function defaultComplianceRules() {
   return [
     
-    { id: 'RM-1', when: 'RawMaterialRegistered', require: ['payload.batchNo'] },
-    { id: 'FG-1', when: 'GlassManufactured',      require: ['payload.processUri','payload.batchNo','payload.furnaceId'] },
+    { id: 'RM-1',  when: 'RawMaterialRegistered', require: ['payload.batchNo'] },
+    { id: 'FG-1',  when: 'GlassManufactured',     require: ['payload.processUri','payload.batchNo','payload.furnaceId'] },
     { id: 'ASM-1', when: 'Assembled',             require: ['payload.specUri'] },
     { id: 'CON-1', when: 'Construction',          require: ['payload.siteId'] },
     { id: 'DEM-1', when: 'Demolition',            require: ['payload.recoveryPotential.recommendedPath'] },
@@ -101,7 +102,7 @@ class DppCoreContract extends Contract {
     const out = [];
 
     try {
-      // l'iterator NON è async-iterable: usa next()/done
+      
       while (true) {
         const res = await iter.next();
         if (res.value) {

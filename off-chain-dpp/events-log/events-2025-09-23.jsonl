@@ -1,0 +1,7 @@
+{"blockNumber":"8","txId":"86277b866ebb499c177b4b3d174cbb269e797301f565ed4700a867ed64a816fb","eventName":"DPP_EVENT","productId":"FG-2025-0001","type":"CreateProduct"}
+{"blockNumber":"9","txId":"e827791fe4d4f0c5f1eed669f04683a77cbe885b69abf37d0cf66092733c3a86","eventName":"DPP_EVENT","productId":"FG-2025-0001","type":"RawMaterialSupplied","seq":1}
+{"blockNumber":"10","txId":"103d363a4f0a540fccaf537bd578f68538e7d5716aa85f84d9822ad06bceabb3","eventName":"DPP_EVENT","productId":"FG-2025-0001","type":"GlassManufactured","seq":2}
+{"blockNumber":"11","txId":"6c003a5317794a6f33b0b979d0119b9069680dd8be597a46f53fc8dcd6dafb23","eventName":"DPP_EVENT","productId":"FG-2025-0001","type":"Assembled","seq":3}
+{"blockNumber":"12","txId":"a171adecaa7bee4cee25c21c2ca67875d7f36918d245afd9d72592a0f306ace7","eventName":"DPP_EVENT","productId":"FG-2025-0001","type":"Constructed","seq":4}
+{"blockNumber":"13","txId":"d92b2ddea27488715e80768fce1c0b87cf907c99b8a8866ce79b37d88fc4379c","eventName":"DPP_EVENT","productId":"FG-2025-0001","type":"Demolished","seq":5}
+{"blockNumber":"14","txId":"55a7bad9c9c24f02a001aad5dab7c26f29f41456ae58cc1b5d30f5980f109510","eventName":"DPP_EVENT","productId":"FG-2025-0001","type":"Landfill","seq":6}
