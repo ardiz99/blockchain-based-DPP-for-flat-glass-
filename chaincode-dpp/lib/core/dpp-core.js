@@ -125,7 +125,7 @@ class DppCoreContract extends Contract {
 
     return JSON.stringify(out);
   }
-
+/*
   async EvaluateCompliance(ctx, productId, rulesJson) {
     assertCan(ctx, 'EvaluateCompliance');
     if (!productId) throw new Error('productId is required');
@@ -146,7 +146,7 @@ class DppCoreContract extends Contract {
       currentStage: product.currentStage,
       ...result
     });
-  }
+  }*/
 }
 
 module.exports = DppCoreContract;
