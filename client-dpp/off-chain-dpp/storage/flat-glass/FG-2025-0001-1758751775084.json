@@ -1,0 +1,33 @@
+{
+  "productId": "FG-2025-0001",
+  "stage": "GlassManufactured",
+  "txAt": "2025-09-24T22:09:35.084Z",
+  "processUri": "file:///home/frank99/fabric/off-chain-dpp/storage/flat-glass/FG-2025-0001.json",
+  "processHash": "afb5839170b5a9d31368f914c73eefc906043063be68f2033033684b3462eab9",
+  "meta": {
+    "batchNo": "FGB-001",
+    "furnaceId": "FURN01",
+    "culletRatio": "0.25"
+  },
+  "glassType": "float-clear",
+  "line": "L1",
+  "furnace": "FURN01",
+  "energyKWh": 1238,
+  "composition": {
+    "SiO2": 72,
+    "Na2O": 14,
+    "CaO": 8,
+    "MgO": 4,
+    "Al2O3": 2
+  },
+  "dimensions": {
+    "thicknessMm": 6,
+    "widthMm": 1200,
+    "heightMm": 600
+  },
+  "compliance": {
+    "CE": true,
+    "REACH": false,
+    "RoHS": true
+  }
+}

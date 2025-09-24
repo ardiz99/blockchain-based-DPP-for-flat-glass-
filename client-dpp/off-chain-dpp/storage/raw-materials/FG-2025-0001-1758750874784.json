@@ -1,0 +1,36 @@
+{
+  "productId": "FG-2025-0001",
+  "stage": "RawMaterialRegistered",
+  "processUri": "file:///home/frank99/fabric/off-chain-dpp/storage/raw-materials/FG-2025-0001.json",
+  "processHash": "fe0874a923d964f3a4419b26530b3a27c3898e82b6ee2fb035cd1dd523927ec0",
+  "supplierBatch": "B-7781",
+  "supplierId": "RawCo-IT-01",
+  "origin": "IT",
+  "composition": {
+    "SiO2": 72,
+    "Na2O": 14,
+    "CaO": 8,
+    "MgO": 4,
+    "Al2O3": 2
+  },
+  "weightKg": 1000,
+  "payload": {
+    "supplierId": "RawCo-IT-01",
+    "batchNo": "B-7781",
+    "composition": {
+      "SiO2": 72,
+      "Na2O": 14,
+      "CaO": 8,
+      "MgO": 4,
+      "Al2O3": 2
+    },
+    "weightKg": 1000,
+    "origin": "IT",
+    "compliance": {
+      "CE": true,
+      "REACH": false,
+      "RoHS": true
+    }
+  },
+  "txAt": "2025-09-24T21:54:34.784Z"
+}

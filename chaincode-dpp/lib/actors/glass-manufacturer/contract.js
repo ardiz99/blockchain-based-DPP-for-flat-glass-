@@ -17,11 +17,11 @@ class GlassManufacturerContract extends Contract {
   }
 
   /**
-   * productId: ID del prodotto creato in DppCore
+   * productId: ID del prodtto creato in DppCore
    * processHash: SHA256 del report/process sheet off-chain
    * processUri: URI (ipfs/s3/http/…) del report/process sheet
    * batchNo, furnaceId, culletRatio: metadati opzionali
-   */
+   */o
   // lib/actors/flat-glass/contract.js (estratto)
   async ManufactureGlass(ctx, productId, processHash, processUri, batchNo, furnaceId, culletRatio, inputsJson='[]') {
     assertCan(ctx, 'ManufactureGlass');

@@ -23,6 +23,7 @@ const data = JSON.parse(dataTxt);
 
 // campi suggeriti (puoi ampliarli liberamente senza toccare on-chain)
 const required = [
+  'recyclerID',
   'culletBatchId',            // lotto di rottame
   'recyclingMethod',          // es. crushing+washing
   'contaminationLevel',       // %
@@ -86,6 +87,7 @@ try {
     productId,
     stage: 'Recycling',
     processUri, processHash,
+    recyclerID: data.recyclerID,
     culletBatchId: data.culletBatchId,
     recyclingMethod: data.recyclingMethod,
     contaminationLevel: data.contaminationLevel,

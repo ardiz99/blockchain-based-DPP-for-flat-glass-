@@ -1,0 +1,28 @@
+{
+  "productId": "FG-2025-0001",
+  "stage": "Assembled",
+  "txAt": "2025-09-24T22:24:31.516Z",
+  "processUri": "file:///home/frank99/fabric/off-chain-dpp/storage/windows-facade/FG-2025-0001.json",
+  "processHash": "962d3078e7ba98eaef97c85bba4b57f90ee94260a8d3efee30802e21c8c38e1d",
+  "sku": "W-001",
+  "unitType": "Double Insulated Glass Unit",
+  "assemblerId": "ASM-ITALY-001",
+  "frame": "aluminium",
+  "glazing": "4/16/4",
+  "uw": 1.2,
+  "dimensions": {
+    "widthMm": 1200,
+    "heightMm": 1450
+  },
+  "facility": "Milano-Plant-A",
+  "assemblyDate": "2025-09-15T10:30:00Z",
+  "gasFill": "argon",
+  "spacerType": "warm-edge",
+  "sealant": "polyurethane",
+  "coating": "low-e",
+  "compliance": {
+    "CE": true,
+    "REACH": false,
+    "RoHS": true
+  }
+}

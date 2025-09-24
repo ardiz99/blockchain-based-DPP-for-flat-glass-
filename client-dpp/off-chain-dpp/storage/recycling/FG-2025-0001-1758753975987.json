@@ -2,7 +2,8 @@
   "productId": "FG-2025-0001",
   "stage": "Recycling",
   "processUri": "file:///home/frank99/fabric/off-chain-dpp/storage/recycling/FG-2025-0001.json",
-  "processHash": "df7d5b9ca1fdbab4d66587f6126cf09a5ab40fd3ad207c416e33dd028e0200c0",
+  "processHash": "825037e9e57fdde3692e2ca0c4bb4f2721fcd06ff53b0779a6b24306e03a1be3",
+  "recyclerID": "Rec01",
   "culletBatchId": "CB-2025-0913-01",
   "recyclingMethod": "crushing+washing",
   "contaminationLevel": 1.8,
@@ -17,5 +18,5 @@
     "co2eKg": 18.4,
     "notes": "Electric furnace, renewable mix 60%"
   },
-  "txAt": "2025-09-22T17:18:55.210Z"
+  "txAt": "2025-09-24T22:46:15.987Z"
 }

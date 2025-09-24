@@ -23,6 +23,7 @@ const data = JSON.parse(dataTxt);
 
 // opzionale ma utile: verifica dei campi attesi
 const required = [
+  'demolisherID',
   'disassemblyInstructions',
   'endOfLifeCondition',
   'recoveryPotential',
@@ -56,6 +57,7 @@ try {
     productId,
     stage: 'Demolition',
     processUri, processHash,
+    demolisherID: data.demolisherID,
     disassemblyInstructions: data.disassemblyInstructions,
     endOfLifeCondition: data.endOfLifeCondition,
     recoveryPotential: data.recoveryPotential,

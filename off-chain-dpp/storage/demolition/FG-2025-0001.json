@@ -1,4 +1,5 @@
 {
+  "demolisherID": "DEM01",
   "disassemblyInstructions": "Rimuovere i fermavetri lato interno, tagliare sigillante perimetrale. Usare ventose certificate EN 13155.",
   "endOfLifeCondition": {
     "integrity": "intact",            

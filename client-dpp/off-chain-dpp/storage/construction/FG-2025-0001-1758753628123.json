@@ -1,0 +1,33 @@
+{
+  "productId": "FG-2025-0001",
+  "stage": "Construction",
+  "txAt": "2025-09-24T22:40:28.123Z",
+  "processUri": "file:///home/frank99/fabric/off-chain-dpp/storage/construction/FG-2025-0001.json",
+  "processHash": "361d020b4c07f9215a8fbc4cc52b821b89f4af94a649152f237e0dc4dbb4dabe",
+  "siteId": "SITE-PIAZZA-01",
+  "installedAt": "2025-09-13T12:34:56Z",
+  "building": {
+    "name": "Torre Alfa",
+    "address": "Via Roma 10, Milano",
+    "gps": [
+      45.4642,
+      9.19
+    ]
+  },
+  "installer": {
+    "company": "Example Construction S.r.l.",
+    "operatorId": "OP-7781"
+  },
+  "warranty": {
+    "start": "2025-09-13T12:34:56Z",
+    "durationMonths": 24
+  },
+  "maintenanceAdvice": "Ispezione guarnizioni ogni 12 mesi; pulizia trimestrale.",
+  "method": "Mechanical anchors + silicone",
+  "notes": "Unità piano 12 lato sud",
+  "compliance": {
+    "CE": true,
+    "REACH": false,
+    "RoHS": true
+  }
+}

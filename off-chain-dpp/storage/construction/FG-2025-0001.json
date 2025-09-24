@@ -8,11 +8,14 @@
     "gps": [45.4642, 9.1900]
   },
   "installer": {
-    "company": "Org4 Construction S.r.l.",
+    "company": "Example Construction S.r.l.",
     "operatorId": "OP-7781"
   },
   "method": "Mechanical anchors + silicone",
   "notes": "Unità piano 12 lato sud",
+  "warranty": { "start": "2025-09-13T12:34:56Z", "durationMonths": 24 },
+
+  "maintenanceAdvice": "Ispezione guarnizioni ogni 12 mesi; pulizia trimestrale.",
   "compliance": {
     "CE": true,
     "REACH": false,

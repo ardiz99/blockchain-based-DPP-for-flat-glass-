@@ -1,7 +1,16 @@
-{"width":1200,"height":1450,"frame":"aluminium","glazing":"4/16/4","uw":1.2,
-"compliance": {
-  "CE": true,
-  "REACH": false,
-  "RoHS": true
-}
+{
+  "width": 1200,
+  "height": 1450,
+  "frame": "aluminium",
+  "glazing": "4/16/4",
+  "uw": 1.2,
+  "assemblerId": "ASM-ITALY-001",
+  "facility": "Milano-Plant-A",
+  "assemblyDate": "2025-09-15T10:30:00Z",
+  "gasFill": "argon",
+  "spacerType": "warm-edge",
+  "sealant": "polyurethane",
+  "coating": "low-e",
+  "unitType": "Double Insulated Glass Unit",
+  "compliance": { "CE": true, "REACH": false, "RoHS": true }
 }

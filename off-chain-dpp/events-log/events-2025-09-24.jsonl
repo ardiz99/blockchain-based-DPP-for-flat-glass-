@@ -1,0 +1,5 @@
+{"blockNumber":"8","txId":"cbe5dea2ef02fabe5135d83f2fca810f053082a90d7281bd106ecbe93ec2ae27","eventName":"DPP_EVENT","productId":"FG-2025-0001","type":"CreateProduct"}
+{"blockNumber":"9","txId":"3d97a2acb130ac8d1b2e1b5e276c6c0096a0a5d3ef68b54f3a4b074fb561e2e4","eventName":"DPP_EVENT","productId":"FG-2025-0001","type":"RawMaterialSupplied","seq":1}
+{"blockNumber":"10","txId":"5207ed28822e6a3390e93bfdcfcc0764a4f8350ef05f37744e7dbb0fba7d96da","eventName":"DPP_EVENT","productId":"FG-2025-0001","type":"GlassManufactured","seq":2}
+{"blockNumber":"11","txId":"16a79bcc70aeb6b5da2901239bb367cf258059381389d8ca1199621a31213018","eventName":"DPP_EVENT","productId":"FG-2025-0001","type":"Assembled","seq":3}
+{"blockNumber":"12","txId":"e14be3156f16062e7b8359b30cd4cde909e4dfd18a4897e3210c56859f1abfcc","eventName":"DPP_EVENT","productId":"FG-2025-0001","type":"Constructed","seq":4}
