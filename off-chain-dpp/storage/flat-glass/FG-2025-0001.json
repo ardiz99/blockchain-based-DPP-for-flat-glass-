@@ -3,7 +3,13 @@
   "line":"L1",
   "furnace":"FURN01",
   "energyKWh":1238,
-  "composition": { "SiO2": 72, "Na2O": 14, "CaO": 8, "MgO": 4, "Al2O3": 2 },
+  "composition": { 
+    "Silica Sand":54, 
+    "Soda ash":15,
+    "Dolomite/limestone":20,
+    "Cullet":10,
+    "Sodium Solphate":1 
+  },
   "dimensions": { "thicknessMm": 6, "widthMm": 1200, "heightMm": 600 },
   "compliance": {
     "CE": true,

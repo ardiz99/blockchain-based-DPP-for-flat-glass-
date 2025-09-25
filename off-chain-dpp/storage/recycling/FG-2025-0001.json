@@ -3,10 +3,10 @@
   "culletBatchId": "CB-2025-0913-01",
   "recyclingMethod": "crushing+washing",
   "contaminationLevel": 1.8,
-  "recycledMassRatio": 0.92,
+  "recycledMassRatio": 0.95,
   "culletQualityGrade": "A",
   "outputs": { "culletKg": 720, "finesKg": 55, "rejectKg": 5 },
-  "emissions": { "co2eKg": 18.4, "notes": "Electric furnace, renewable mix 60%" },
+  "emissions": { "co2eKg": 25, "notes": "Electric furnace, renewable mix 60%" },
   "compliance": {
     "CE": true,
     "REACH": false,

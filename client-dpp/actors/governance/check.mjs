@@ -3,8 +3,6 @@ import fs from 'fs';
 import path from 'path';
 import { newGatewayAndContract } from '../../gateway.js';
 
-
-
 const [,, productId, ...rest] = process.argv;
 if (!productId) {
   console.error('usage: node actors/governance/check-compliance.mjs <PRODUCT_ID>');
@@ -166,4 +164,3 @@ try {
   gateway.close();
   client.close();
 }
-

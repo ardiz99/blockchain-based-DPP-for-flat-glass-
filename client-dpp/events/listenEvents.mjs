@@ -12,7 +12,7 @@ const dec = new TextDecoder();
 const outDir   = path.resolve('../off-chain-dpp/events-log');
 const dayTag   = new Date().toISOString().substring(0, 10);
 const filePath = path.join(outDir, `events-${dayTag}.jsonl`);
-
+//resetta il file dei log ogni volta che riavvii
 async function ensureCleanLogDir() {
   await fs.mkdir(outDir, { recursive: true });
   if (RESET_LOG) {
