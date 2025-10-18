@@ -1,5 +1,8 @@
 # blockchain-based-DPP-for-flat-glass-
-Creating a blockchain-based Digital Product Passport to guarantee circular economy in entire supply chain of flat glass products
+Creating a blockchain-based Digital Product Passport to guarantee circular economy in entire supply chain of flat glass products.
+
+The idea is to use Javascript to write the code of the chaincode and the clients API and NPM to run the scripts.
+The commands below will run an example of the code:
 
 //move to create the channel:
 1) cd ~/fabric/fabric-samples/test-network
@@ -43,9 +46,3 @@ curl -sS http://localhost:8080/other/dpp/FG-2025-0001/status  | jq .
 21) npm run bo:view -- FG-2025-0001
 
 22) npm run gov:check -- FG-2025-0001
-
-//per ora ignora
-
-//aggiungi 0rg4 (e le altre org: sostituisci i nomi e basta):
-1) cp -R addOrg3 addOrg4
-2) cp -R scripts/org3-scripts scripts/org4-scripts
